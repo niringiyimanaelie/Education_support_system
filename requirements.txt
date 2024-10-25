@@ -1,0 +1,9 @@
+openai
+pinecone-client
+python-dotenv
+pandas
+langchain
+numpy
+textwrap3
+streamlit
+pdfplumber
