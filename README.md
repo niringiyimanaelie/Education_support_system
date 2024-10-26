@@ -9,8 +9,8 @@ Provides accurate, context-based answers to student queries.
 
 # Installation
 # Clone the repository:
-https://github.com/niringiyimanaelie/Education_support_system.git
 git clone https://github.com/niringiyimanaelie/Education_support_system.git
+
 cd Education_support_system
 
 # Install dependencies:
@@ -18,6 +18,7 @@ pip install -r requirements.txt
 
 # Set up environment variables: Create a .env file with:
 OPENAI_API_KEY=your_openai_api_key
+
 PINECONE_API_KEY=your_pinecone_api_key
 
 # Usage
