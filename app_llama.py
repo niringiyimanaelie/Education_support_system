@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 import os
 import textwrap
 import streamlit as st
+import ollama
 
 ### Keys
 load_dotenv()
@@ -36,23 +37,16 @@ def augmented_query(user_query, embed_model, k=5):
     return "\n\n---\n\n".join(context) + "\n\n---\n\n" + query
 
 ### Ask
-def ask(system_prompt, user_prompt, model, temp=0.7):
-    temperature_ = temp
-    completion = client.chat.completions.create(
-        model=model,
-        temperature=temperature_,
-        messages=[
-            {
-                "role": "system",
-                "content": system_prompt
-            },
-            {
-                "role": "user",
-                "content": user_prompt
-            }
-        ]
-    )
-    lines = (completion.choices[0].message.content).split("\n")
+def ask(system_prompt, user_prompt, model):
+    # Generate the response
+    response = ollama.chat(
+    model = model,
+    messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ])
+
+    lines = (response['message']['content']).split("\n")
     lists = (textwrap.TextWrapper(width=90, break_long_words=False).wrap(line) for line in lines)
     return "\n".join("\n".join(list) for list in lists)
 
@@ -69,7 +63,7 @@ def Education_ChatBot(query):
     Stay within the course's boundaries. Your answers must be accurate, brief, and supportive to ensure an effective learning experience.
     """
 
-    llm_model = 'chatgpt-4o-latest'
+    llm_model = 'llama3:latest'
     user_prompt = augmented_query(query, embed_model)
     return ask(primer, user_prompt, model=llm_model)
 

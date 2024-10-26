@@ -9,10 +9,9 @@ Provides accurate, context-based answers to student queries.
 
 # Installation
 # Clone the repository:
-bash
-Copy code
-git clone <your-repository-url>
-cd <project-directory>
+https://github.com/niringiyimanaelie/Education_support_system.git
+git clone https://github.com/niringiyimanaelie/Education_support_system.git
+cd Education_support_system
 
 # Install dependencies:
 pip install -r requirements.txt

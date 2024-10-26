@@ -7,3 +7,4 @@ numpy
 textwrap3
 streamlit
 pdfplumber
+ollama

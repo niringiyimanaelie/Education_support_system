@@ -23,17 +23,12 @@ index = pc.Index('managingbigdata')
 openai.api_key = openai_api_key
 client = openai.OpenAI()
 
-"""Embedding function"""
-
+#Embedding function
 def get_embeddings(text, model='text-embedding-ada-002'):
   text = text.replace("\n", " ")
   return client.embeddings.create(input = text, model=model).data[0].embedding
 
-"""Dataset"""
-
-# filepaths = "Managing_bigdata_merged_notes.pdf"
-# with open(filepaths, encoding='utf-8', errors='ignore') as f:
-#     data = f.read() + "\n"
+#Dataset
 def read_pdf(filepath):
     text = ""
     with pdfplumber.open(filepath) as pdf:
@@ -42,14 +37,11 @@ def read_pdf(filepath):
             if page_text:
                 text += page_text + "\n"
     return text
-
-# Use the new function to extract text from the PDF
 filepaths = "Managing_bigdata_merged_notes.pdf"
 data = read_pdf(filepaths) 
 
 
-"""Split"""
-
+#Split
 my_splitter = RecursiveCharacterTextSplitter(
     chunk_size = 600,
     chunk_overlap = 100,
