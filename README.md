@@ -23,4 +23,4 @@ PINECONE_API_KEY=your_pinecone_api_key
 
 # Usage
 # Run the Streamlit app:
-streamlit run <app.py>
+streamlit run app.py
