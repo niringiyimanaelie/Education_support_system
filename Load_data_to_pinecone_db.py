@@ -37,7 +37,7 @@ def read_pdf(filepath):
             if page_text:
                 text += page_text + "\n"
     return text
-filepaths = "Managing_bigdata_merged_notes.pdf"
+filepaths = " " ## Link to class materials
 data = read_pdf(filepaths) 
 
 
@@ -74,8 +74,8 @@ def load_chunks(df, split_text):
 
 pinecone_data = load_chunks(schema, chunks)
 
-pinecone_data.to_csv('Managing_bigdata_merged_notes.csv')
-pinecone_df= pd.read_csv('Managing_bigdata_merged_notes.csv')
+pinecone_data.to_csv('Managing_bigdata_data_frame.csv')
+pinecone_df= pd.read_csv('Managing_bigdata_data_frame.csv')
 
 def prepare_DF(df):
   import json,ast
